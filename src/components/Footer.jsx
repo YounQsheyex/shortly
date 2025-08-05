@@ -6,7 +6,7 @@ import instagram from "../assets/icon-instagram.svg";
 
 const Footer = () => {
   return (
-    <div className="w-sm lg:w-full bg-[hsl(260,8%,14%)]">
+    <div className="w-full lg:w-full bg-[hsl(260,8%,14%)]">
       <div className="w-full lg:w-[1024px] mx-auto p-10">
         <div className="lg:grid lg:grid-cols-12 text-[hsl(0,0%,75%)]  mt-6">
           <div className="col-span-4">

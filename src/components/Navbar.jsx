@@ -28,7 +28,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="dropdown-content menu bg-[hsl(257,27%,26%)] rounded-box z-5 w-[325px] h-[400px] p-2 shadow-sm "
+              className="dropdown-content menu bg-[hsl(257,27%,26%)] rounded-box z-5 w-[325px] h-[400px] p-2 shadow-sm rounded-lg "
             >
               <li>
                 <div className="flex flex-col items-center gap-10 font-[700] text-white text-[22px] cursor-pointer p-5">
