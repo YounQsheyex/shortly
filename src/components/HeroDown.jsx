@@ -1,19 +1,56 @@
 import React from "react";
+import { useState } from "react";
 import { statistics } from "../../data";
+import { ClipLoader } from "react-spinners";
 
+// https://tinyurl.com/api-create.php?url=YOUR_URL
 const HeroDown = () => {
+  const [isSubmitting, setIsubmitting] = useState(false);
+  const [shortlink, setShortlink] = useState("");
+  const [link, setLink] = useState([]);
+
+  const getLink = (e) => {
+    e.preventDefault();
+    setIsubmitting(true);
+    const shortenLink = async () => {
+      try {
+        const response = await fetch(
+          `https://tinyurl.com/api-create.php?url=${shortlink}`
+        );
+        const data = await response.text();
+        console.log(data);
+        setLink(data);
+      } catch (error) {
+        console.log(error);
+      }
+      setIsubmitting(false);
+    };
+    shortenLink();
+  };
   return (
     <div className="w-full lg:w-full mx-auto p-10 mt-40 bg-gray-300 ">
       <div className="relative w-full lg:w-[1024px] mx-auto lg:relative">
         <div className="absolute w-[330px] mx-auto lg:mx-0 lg:w-[1024px] h-[150px] p-5 lg:p-10 bgshort rounded-lg lg:absolute -top-80 ">
-          <form className="flex flex-col lg:flex lg:flex-row items-center justify-center gap-2 lg:gap-3 lg:p-2">
+          <form
+            onSubmit={getLink}
+            className="flex flex-col lg:flex lg:flex-row items-center justify-center gap-2 lg:gap-3 lg:p-2"
+          >
             <input
               type="text"
               placeholder="Shorten a link here..."
               className="bg-white w-full lg:w-[70%] h-[50px] rounded-lg lg:rounded-2xl px-5 placeholder:font-[700]"
+              value={shortlink}
+              onChange={(e) => setShortlink(e.target.value)}
             />
-            <button className="w-full lg:w-[20%] h-[50px] bg-[hsl(180,66%,49%)] text-[18px] text-white font-[700] rounded-lg lg:rounded-2xl">
-              Shorten it!
+            <button
+              onClick={getLink}
+              className="w-full lg:w-[20%] h-[50px] bg-[hsl(180,66%,49%)] text-[18px] text-white font-[700] rounded-lg lg:rounded-2xl cursor-pointer"
+            >
+              {isSubmitting ? (
+                <ClipLoader color="#faf9fb" size={20} />
+              ) : (
+                "Shorten it!"
+              )}
             </button>
           </form>
         </div>
@@ -26,24 +63,24 @@ const HeroDown = () => {
             statistics dashboard.
           </p>
         </div>
-        <div className="mt-20 flex flex-col lg:flex lg:flex-row gap-20 lg:gap-5 relative">
+        <div className="mt-20 flex flex-col lg:flex lg:flex-row gap-20 lg:gap-5 relative mb-40 lg:mb-30">
+          <div className="lg:bg-[hsl(180,66%,49%)] lg:h-2 lg:w-full lg:absolute  lg:top-[50%]"></div>
           {statistics.map((items, index) => {
             return (
               <div
                 key={index}
-                className={`bg-white rounded-lg shadow-lg p-5 w-full lg:w-[500px] relative top-[${
-                  index * 70
-                }px] left-[${index * 50}px] z-[${index}]`}
+                className={`bg-white rounded-lg shadow-lg p-5 w-full lg:w-[500px] relative `}
+                style={{ transform: `translateY(${index * 50}px)` }}
               >
                 <div className="flex items-center justify-center rounded-full w-[80px] h-[80px]  bg-[hsl(257,27%,26%)] mb-2 absolute -top-10 left-27 lg:left-5">
                   <img
                     src={items.icon}
                     alt="img"
-                    className="object-contain w-[50px] h-[50px]"
+                    className="object-contain w-[50px] h-[50px] relative"
                   />
                 </div>
                 <div className="w-full lg:w-[200px] mt-15">
-                  <h1 className="font-[700] text-[18px] text-center lg:text-start">
+                  <h1 className="font-[700] text-[18px] text-center lg:text-start relative">
                     {items.title}
                   </h1>
                 </div>
