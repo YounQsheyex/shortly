@@ -160,13 +160,13 @@ const HeroDown = () => {
             statistics dashboard.
           </p>
         </div>
-        <div className="mt-20 flex flex-col lg:flex lg:flex-row gap-20 lg:gap-5 relative mb-40 lg:mb-30">
+        <div className="lg:h-[300px] mt-20 flex flex-col lg:flex lg:flex-row gap-20 lg:gap-5 relative mb-40 lg:mb-30">
           <div className="lg:bg-[hsl(180,66%,49%)] lg:h-2 lg:w-full lg:absolute  lg:top-[50%]"></div>
           {statistics.map((items, index) => {
             return (
               <div
                 key={index}
-                className={`bg-white rounded-lg shadow-lg p-5 w-full lg:w-[500px] relative `}
+                className={`bg-white rounded-lg shadow-lg p-5 w-full lg:w-[350px] lg:h-[200px] relative `}
                 style={{ transform: `translateY(${index * 50}px)` }}
               >
                 <div className="flex items-center justify-center rounded-full w-[80px] h-[80px]  bg-[hsl(257,27%,26%)] mb-2 absolute -top-10 left-27 lg:left-5">
@@ -176,13 +176,13 @@ const HeroDown = () => {
                     className="object-contain w-[50px] h-[50px] relative"
                   />
                 </div>
-                <div className="w-full lg:w-[200px] mt-15">
+                <div className="w-full lg:w-[200px] mt-10">
                   <h1 className="font-[700] text-[18px] text-center lg:text-start relative">
                     {items.title}
                   </h1>
                 </div>
-                <div className="w-full lg:w-[330px] my-7">
-                  <p className="text-[18px] text-[hsl(257,7%,63%)]">
+                <div className="w-full lg:w-full  my-3">
+                  <p className="text-[14px] text-[hsl(257,7%,63%)]">
                     {items.description}
                   </p>
                 </div>
