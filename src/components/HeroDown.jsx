@@ -110,7 +110,7 @@ const HeroDown = () => {
             <div className="w-full lg:w-[20%]">
               <button
                 // onClick={handleSubmit(onSubmit)}
-                className="w-full lg:w-full h-[50px] bg-[hsl(180,66%,49%)] text-[18px] text-white font-[700] rounded-lg lg:rounded-2xl cursor-pointer"
+                className="w-full lg:w-full h-[50px] bg-[hsl(180,66%,49%)] hover:bg-[hsl(180,60%,81%)] text-[18px] text-white font-[700] rounded-lg lg:rounded-2xl cursor-pointer"
               >
                 {isSubmitting ? (
                   <ClipLoader color="#faf9fb" size={20} />
