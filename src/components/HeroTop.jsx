@@ -13,7 +13,10 @@ const HeroTop = () => {
             Build your brand’s recognition and get detailed insights on how your
             links are performing.
           </p>
-          <button className="w-[150px] mx-auto lg:mx-0 mt-10 bg-[hsl(180,66%,49%)] text-[18px] text-white   font-[700] p-2 rounded-[20px] cursor-pointer flex justify-center">
+          <button
+            onClick={(e) => e.preventDefault()}
+            className="w-[150px] mx-auto lg:mx-0 mt-10 bg-[hsl(180,66%,49%)] text-[18px] text-white   font-[700] p-2 rounded-[20px] cursor-pointer flex justify-center"
+          >
             Get Started
           </button>
         </div>

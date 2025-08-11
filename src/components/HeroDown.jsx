@@ -34,13 +34,19 @@ const HeroDown = () => {
     setIsubmitting(true);
     const shortenLink = async () => {
       try {
+        if (!shortlink) {
+          return "Please add a link";
+        }
+
         const response = await fetch(
           `https://tinyurl.com/api-create.php?url=${shortlink}`
         );
-        if (!response.ok) {
-          throw new Error("Please add a link");
-        }
+
         const data = await response.text();
+
+        if (!response.ok) {
+          throw new Error("This Link is Invalid");
+        }
 
         // console.log(data);
         const allLink = {
@@ -52,7 +58,10 @@ const HeroDown = () => {
         setShortlink("");
         reset();
       } catch (error) {
-        setErrorMsg(error?.response?.data.message || "Please add a Link");
+        setErrorMsg(error?.response?.data.message || "This Link is Invalid");
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
 
         // console.log(error);
       }
@@ -70,10 +79,15 @@ const HeroDown = () => {
     localStorage.setItem("shortenedLinks", JSON.stringify(link));
   }, [link]);
 
+  const clearHistory = () => {
+    localStorage.removeItem("shortenedLinks");
+    setLink([]);
+  };
+
   return (
     <div className="w-full lg:w-[1440px] mx-auto p-10 mt-40 bg-gray-300 ">
-      <div className="w-full lg:w-[1024px] mx-auto">
-        <div className="w-[330px] mx-auto lg:mx-0 lg:w-[1024px] h-[160px] p-5 lg:p-10 bgshort rounded-lg -mt-30">
+      <div className="w-full lg:max-w-[1024px] mx-auto">
+        <div className="w-full mx-auto lg:mx-0 lg:w-[1024px] h-[160px] p-5 lg:p-10 bgshort rounded-lg -mt-30">
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col lg:flex lg:flex-row items-center justify-center gap-2 lg:gap-3 lg:p-2"
@@ -123,16 +137,16 @@ const HeroDown = () => {
               return (
                 <div
                   key={index}
-                  className="w-full p-5 flex flex-col lg:flex-row justify-between items-center mt-5 bg-white shadow-sm rounded-lg"
+                  className="w-full mx-auto p-8 lg:p-5 flex flex-col lg:flex-row justify-between items-center mt-5 bg-white shadow-sm rounded-lg"
                 >
                   <div>
-                    <h1 className="text-[hsl(260,8%,14%))] text-[18px] font-[500]">
+                    <h1 className="text-[hsl(260,8%,14%))] lg:text-[18px] font-[500]">
                       {lin.typedLink}
                     </h1>
                   </div>
                   <hr className="my-3" />
                   <div className="flex flex-col lg:flex-row items-center gap-5">
-                    <h1 className="text-[hsl(180,66%,49%)] text-[18px] font-[500]">
+                    <h1 className="text-[hsl(180,66%,49%)] lg:text-[18px] font-[500]">
                       {lin.shortenedLink}
                     </h1>
                     <button
@@ -141,7 +155,7 @@ const HeroDown = () => {
                         copy === index
                           ? "bg-[hsl(257,27%,26%)]"
                           : " bg-[hsl(180,66%,49%)]"
-                      } text-white text-[18px] font-[700] w-[300px] mt-1.5 lg:mt-0 lg:w-[100px] h-[50px] rounded-lg px-2 focus: cursor-pointer`}
+                      } text-white text-[18px] font-[700] w-[200px] mt-1.5 lg:mt-0 lg:w-[100px] h-[50px] rounded-lg  lg:px-2 focus: cursor-pointer`}
                     >
                       {copy === index ? "Copied !" : "Copy !"}
                     </button>
@@ -149,6 +163,14 @@ const HeroDown = () => {
                 </div>
               );
             })}
+            <div className="w-[200px] h-[50px] mx-auto flex justify-center mt-9">
+              <button
+                onClick={clearHistory}
+                className="w-full bg-[hsl(180,66%,49%)] text-white text-[18px] hover:bg-[hsl(257,27%,26%)] rounded-xl cursor-pointer"
+              >
+                Clear History
+              </button>
+            </div>
           </div>
         )}
         <div className="flex flex-col items-center mx-auto mt-50 ">
@@ -161,7 +183,7 @@ const HeroDown = () => {
           </p>
         </div>
         <div className="lg:h-[300px] mt-20 flex flex-col lg:flex lg:flex-row gap-20 lg:gap-5 relative mb-40 lg:mb-30">
-          <div className="lg:bg-[hsl(180,66%,49%)] lg:h-2 lg:w-full lg:absolute  lg:top-[50%]"></div>
+          <div className="lg:bg-[hsl(180,66%,49%)] lg:h-2 lg:w-full lg:absolute lg:top-[50%]"></div>
           {statistics.map((items, index) => {
             return (
               <div

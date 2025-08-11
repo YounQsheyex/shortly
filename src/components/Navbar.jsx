@@ -4,7 +4,10 @@ import { GrMenu } from "react-icons/gr";
 
 const Navbar = () => {
   return (
-    <div className="w-sm lg:w-[1440px] mx-auto">
+    <div
+      onClick={(e) => e.preventDefault()}
+      className="w-sm lg:w-[1440px] mx-auto"
+    >
       <nav>
         <div className="w-full lg:w-[1024px] lg:mx-auto p-5 flex items-center justify-between">
           <div className="flex items-center gap-10">

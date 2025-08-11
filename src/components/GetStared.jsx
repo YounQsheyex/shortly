@@ -7,7 +7,10 @@ const GetStared = () => {
         <h1 className="text-white text-[23px] lg:text-[50px] font-[700]">
           Boost your links today
         </h1>
-        <button className="w-[150px] mt-5 bg-[hsl(180,66%,49%)] text-[18px] text-white font-[700] p-2 rounded-[20px] cursor-pointer">
+        <button
+          onClick={(e) => e.preventDefault()}
+          className="w-[150px] mt-5 bg-[hsl(180,66%,49%)] text-[18px] text-white font-[700] p-2 rounded-[20px] cursor-pointer"
+        >
           Get Started
         </button>
       </div>

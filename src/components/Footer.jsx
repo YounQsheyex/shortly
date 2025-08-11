@@ -8,14 +8,17 @@ const Footer = () => {
   return (
     <div className="w-full lg:w-[1440px] mx-auto bg-[hsl(260,8%,14%)]">
       <div className="w-full lg:w-[1024px] mx-auto p-10">
-        <div className="lg:grid lg:grid-cols-12 text-[hsl(0,0%,75%)]  mt-6">
+        <div
+          onClick={(e) => e.preventDefault()}
+          className="lg:grid lg:grid-cols-12 text-[hsl(0,0%,75%)]  mt-6"
+        >
           <div className="col-span-4">
             <div className="text-center lg:text-start">
               <h1 className="text-white text-[30px] font-[700]">Shortly</h1>
             </div>
           </div>
           <div className="col-span-2">
-            <div className="text-center lg:text-start mt-5 lg:mt-0">
+            <div className="text-center lg:text-start mt-5 lg:mt-0 ">
               <div className="mb-2">
                 <h1 className="text-white font-[700] text-[18px]">Features</h1>
               </div>
@@ -27,7 +30,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="col-span-2">
-            <div className="flex flex-col text-center lg:text-start items-center lg:items-start mt-5 lg:mt-0">
+            <div className="flex flex-col text-center lg:text-start items-center lg:items-start mt-5 lg:mt-0 ">
               <div className="mb-2">
                 <h1 className="text-white font-[700] text-[18px]">Resources</h1>
               </div>
@@ -39,7 +42,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="col-span-2">
-            <div className="text-center lg:text-start mt-5 lg:mt-0">
+            <div className="text-center lg:text-start mt-5 lg:mt-0 ">
               <div className="mb-2">
                 <h1 className="text-white font-[700] text-[18px]">Company</h1>
               </div>
@@ -52,17 +55,17 @@ const Footer = () => {
             </div>
           </div>
           <div className="col-span-2">
-            <div className="flex  justify-center items-center gap-5">
-              <a href="" className="cursor-pointer">
+            <div className="flex  justify-center items-center gap-5  ">
+              <a href="#" className="cursor-pointer">
                 <img src={facebook} alt="" />
               </a>
-              <a href="" className="cursor-pointer">
+              <a href="#" className="cursor-pointer">
                 <img src={twitter} alt="" />
               </a>
-              <a href="" className="cursor-pointer">
+              <a href="#" className="cursor-pointer">
                 <img src={pinterest} alt="" />
               </a>
-              <a href="" className="cursor-pointer">
+              <a href="#" className="cursor-pointer">
                 <img src={instagram} alt="" />
               </a>
             </div>
