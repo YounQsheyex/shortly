@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <div
       onClick={(e) => e.preventDefault()}
-      className="w-sm lg:max-w-[1440px] mx-auto"
+      className="w-full lg:max-w-[1440px] mx-auto"
     >
       <nav>
         <div className="w-full lg:w-[1024px] lg:mx-auto p-5 flex items-center justify-between">

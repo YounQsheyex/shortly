@@ -3,7 +3,7 @@ import illustration from "../assets/illustration-working.svg";
 
 const HeroTop = () => {
   return (
-    <div className="w-sm lg:max-w-[1440px] mx-auto mt-10 p-10">
+    <div className="w-full lg:max-w-[1440px] mx-auto mt-10 p-10">
       <div className="w-full lg:w-[1024px] mx-auto flex flex-col-reverse  lg:flex lg:flex-row items-center gap-20 justify-between">
         <div>
           <h1 className="text-[40px] text-center lg:text-start lg:text-[50px] font-[700]">
