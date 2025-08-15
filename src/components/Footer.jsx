@@ -6,7 +6,7 @@ import instagram from "../assets/icon-instagram.svg";
 
 const Footer = () => {
   return (
-    <div className="w-full lg:w-[1440px] mx-auto bg-[hsl(260,8%,14%)]">
+    <div className="w-full lg:max-w-[1440px] mx-auto bg-[hsl(260,8%,14%)]">
       <div className="w-full lg:w-[1024px] mx-auto p-10">
         <div
           onClick={(e) => e.preventDefault()}

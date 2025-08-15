@@ -85,8 +85,8 @@ const HeroDown = () => {
   };
 
   return (
-    <div className="w-full lg:w-[1440px] mx-auto p-10 mt-40 bg-gray-300 ">
-      <div className="w-full lg:max-w-[1024px] mx-auto">
+    <div className="w-full lg:max-w-[1440px] mx-auto p-10 mt-40 bg-gray-300 ">
+      <div className="w-full lg:w-[1024px] mx-auto">
         <div className="w-full mx-auto lg:mx-0 lg:w-[1024px] h-[160px] p-5 lg:p-10 bgshort rounded-lg -mt-30">
           <form
             onSubmit={handleSubmit(onSubmit)}
@@ -155,7 +155,7 @@ const HeroDown = () => {
                         copy === index
                           ? "bg-[hsl(257,27%,26%)]"
                           : " bg-[hsl(180,66%,49%)]"
-                      } text-white text-[18px] font-[700] w-[200px] mt-1.5 lg:mt-0 lg:w-[100px] h-[50px] rounded-lg  lg:px-2 focus: cursor-pointer`}
+                      } text-white text-[18px] font-[700] w-[200px] mt-1.5 lg:mt-0 lg:w-[100px] h-[50px] rounded-lg  lg:px-2 focus: cursor-pointer `}
                     >
                       {copy === index ? "Copied !" : "Copy !"}
                     </button>
