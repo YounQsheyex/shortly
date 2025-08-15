@@ -86,8 +86,8 @@ const HeroDown = () => {
 
   return (
     <div className="w-full lg:max-w-[1440px] mx-auto p-10 mt-40 bg-gray-300 ">
-      <div className="w-full lg:w-[1024px] mx-auto">
-        <div className="w-full mx-auto lg:mx-0 lg:w-[1024px] h-[160px] p-5 lg:p-10 bgshort rounded-lg -mt-30">
+      <div className="w-full lg:max-w-[1024px] mx-auto">
+        <div className="w-full mx-auto lg:mx-0 lg:max-w-[1024px] h-[160px] p-5 lg:p-10 bgshort rounded-lg -mt-30">
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col lg:flex lg:flex-row items-center justify-center gap-2 lg:gap-3 lg:p-2"

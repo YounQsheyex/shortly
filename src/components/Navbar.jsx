@@ -9,7 +9,7 @@ const Navbar = () => {
       className="w-full lg:max-w-[1440px] mx-auto"
     >
       <nav>
-        <div className="w-full lg:w-[1024px] lg:mx-auto p-5 flex items-center justify-between">
+        <div className="w-full lg:max-w-[1024px] lg:mx-auto p-5 flex items-center justify-between">
           <div className="flex items-center gap-10">
             <div>
               <a href="#">
